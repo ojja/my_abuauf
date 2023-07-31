@@ -1,0 +1,2 @@
+export const INPUT_CLASSES = "w-full py-4 px-5 border-2 border-gray-400 rounded-2xl text-black outline-none";
+export const LABEL_CLASSES = "block text-base font-semibold leading-6  text-gray-50 capitalize";

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Processing</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <style>
+
+        html,
+        body {
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            color: #121212;
+            font-family: 'Lato', sans-serif;
+        }
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*="margin: 16px 0"] {
+            margin: 0;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        table table table {
+            table-layout: auto;
+        }
+
+        img{
+            -ms-interpolation-mode: bicubic;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0;background-color:#efefee;width: 100%;height: 100%;">
+        <table  cellpadding="0" cellspacing="0" border="0" align="center" valign="middle" style="margin: 0;" width="100%" bgcolor="#efefee">
+            <tr>
+                <td style="height: 32px">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="padding: 0 20px 20px">
+                    <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="640">
+
+                        <!-- Start Content Section -->
+                        <tr>
+                            <td style="width:100%;background-color: #fff;padding: 20px 20px 30px;border-radius: 0;border: 1px solid #BFC1C6;">
+                                <!-- Top Data -->
+                                {% if order_lang == 'ar' %}
+                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;direction: rtl;" width="100%">
+                                    <tr>
+                                        <td style="text-align: center;padding-bottom: 10px;" align="center">
+                                          <a href="https://cloudhosta.com:67">
+                                            <img editable width="100" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/pwa-logo.webp" alt="logo" >
+                                          </a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Confirmed Message -->
+                                    <tr>
+                                        <!-- Top Message -->
+                                        <td style="padding-bottom: 20px">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <td align="center">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td style="color: #21a218;font-size: 24px;font-weight: bold;text-align: center;line-height: 1.35;">طلبك #{{ order_number }} في المعالجة</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="color: #6c707d;font-size: 13px;font-weight: normal;text-align: center;line-height: 1.4;">شكرا للتسوق من {% if shipping_method != 'Local pickup' %}سوف نقوم بإعلامكم عند شحن المنتج.{% endif %}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Start List Items -->
+                                    <tr>
+                                        <td style="padding-top: 10px;">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: right;padding-bottom: 5px;">المنتج</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: right;padding-bottom: 5px;">سعر القطعة</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: right;padding-bottom: 5px;">الكمية</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: left;padding-bottom: 5px;">المبلغ</th>
+                                                </tr>
+
+                                                {% for item in items %}
+                                                <!-- Item -->
+                                                <tr>
+                                                    <td style="border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="top" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td align="right" valign="top" width="80">
+                                                                    <img editable width="55" src={{ item.thumbnail }} alt="image" style="border:1px solid #f9f8f8;border-radius: 4px;padding: 1px;" >
+                                                                </td>
+                                                                <td align="top" valign="top" style="vertical-align:top;">
+                                                                    <table cellpadding="0" cellspacing="0" border="0"  valign="top" style="margin: 0;" width="100%">
+                                                                        <tr>
+                                                                            <td align="top" valign="top" style="color: #121212;font-size: 14px;font-weight: bold;text-align: right;vertical-align:middle;">{{ item.name_ar }}<br><span style="font-size: 13px;font-weight: 300;color: #454545;text-transform: capitalize;">{{ item.variation }}</span></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: right;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.price }} {{ order_currency }}</td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: right;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.quantity }}</td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: left;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.subtotal }} {{ order_currency }}</td>
+                                                </tr>
+                                                {% endfor %}
+
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Start Items specifications -->
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td style="padding-top: 30px;padding-bottom: 30px;border-top: 1px solid #ecedf0;">
+                                                                    <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                        <tr>
+                                                                            <td style="padding: 20px 20px 20px 0;width: 50%;" width="50%">
+                                                                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;font-weight: bold;line-height: 1.35;padding-bottom: 10px;text-transform: uppercase;">تفاصيل الشحن</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ first_name }} {{ last_name }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ email }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{% if shipping_method != 'Local pickup' %}{{ billing_address }}, {{billing_area}}, {{billing_state}}, {{billing_country}}{% else %}الاسثلام في الفرع{% endif %}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ phone }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">
+                                                                                          تاريخ الطلب: {{ order_date }}
+                                                                                          {% if(order_qr_img != '') %} {{ order_qr_img }} {% endif %}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                            <td style="padding-right:60px;">
+                                                                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">المبلغ</td>
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: left;padding-bottom: 20px;line-height: 1.3;">{{ order_subtotal_to_display }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">الشحن</td>
+                                                                                        {% if shipping_to_display != '0.00' %}
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: left;padding-bottom: 20px;line-height: 1.3;">{{ shipping_to_display }} {{ order_currency }}</td>
+                                                                                        {% endif %}
+                                                                                        {% if shipping_to_display == '0.00' %}
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: left;padding-bottom: 20px;line-height: 1.3;">مجانا!</td>
+                                                                                        {% endif %}
+                                                                                    </tr>
+                                                                                    {% if order_total_discount != 0 %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">خصم</td>
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: left;padding-bottom: 20px;line-height: 1.3;">-{{ order_total_discount }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    {% endif %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:20px;color:#000;font-weight: 700;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">المبلغ الإجمالي</td>
+                                                                                        <td style="font-size:20px;color:#393939;font-weight: 700;text-align: left;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">{{ order_total }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    {% if order_estimate_equivalent != '' %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:16px;color:#000;font-weight: 400;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">ما يعادل</td>
+                                                                                        <td style="font-size:16px;color:#393939;font-weight: 400;text-align: right;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">{{ order_estimate_equivalent }}</td>
+                                                                                    </tr>
+                                                                                    {% endif %}
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;padding: 40px 10px 40px 27px;border: 1px solid rgb(238, 237, 237);background: #f8f8f8;" width="100%">
+                                                <tr>
+                                                    <td align="right" style="vertical-align: top; padding:0 20px;width: 50%;">
+                                                        <p style="margin:0;height:40px;"><img editable width="40" src="https://www.dresscodeme.com/wp-content/themes/dress-code/img/email/return-icon.png" alt="icon"/></p>
+                                                        <h4 style="font-size: 14px;margin: 5px 0 0;padding: 0;text-transform: capitalize;line-height: 1.5;font-weight: bold;">استرجاع مضمون</h4>
+                                                        <p style="font-size: 12px; color: #4f4f4f; margin: 0; padding: 0;line-height: 1.95;">المقاس ليس مناسب؟ لا تقلق لدينا <a href="https://www.dresscodeme.com/returns-exchange/" style="color: #2075FF;text-decoration: underline;">سياسة استرجاع ممتازة</a> مصممة لتجعلك سعيد </p>
+                                                    </td>
+                                                    <td align="right" style="vertical-align: top; padding:0 20px;width: 50%;">
+                                                        <p style="margin:0;height:40px;"><img editable width="50" src="https://www.dresscodeme.com/wp-content/themes/dress-code/img/email/chat-icon.png" alt="icon"/></p>
+                                                        <h4 style="font-size: 14px;margin: 5px 0 0;padding: 0;text-transform: capitalize;line-height: 1.5;font-weight: bold;">دعم العملاء مميز</h4>
+                                                        <p style="font-size: 12px; color: #4f4f4f; margin: 0; padding: 0;line-height: 1.95;">اتصل بفريق المبيعات لدينا علي <span style="direction:ltr;display:inline-block;">(+20) 1228472222</span></p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="padding: 30px 0 0;">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <!-- Social Media -->
+                                                    <td align="right">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  style="margin: 0;">
+                                                            <tr>
+                                                                <td style="padding-bottom: 8px;">
+                                                                    <a href="https://www.facebook.com/" style="font-size: 13px;text-decoration: none;font-weight: 700;color: #4E598F;">
+                                                                        <img editable width="27" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/facebook.webp" alt="icon" style="vertical-align: middle;margin-left: 5px;">
+                                                                         Facebook Page
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/" style="font-size: 13px;text-decoration: none;font-weight: 700;color: #B5339A;">
+                                                                        <img editable width="27" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/instagram.webp" alt="icon" style="vertical-align: middle;margin-left: 5px;">
+                                                                         Instagram
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                {% elsif order_lang != 'ar' %}
+                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                    <tr>
+                                        <td style="text-align: center;padding-bottom: 10px;" align="center">
+                                          <a href="https://cloudhosta.com:67">
+                                            <img editable width="100" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/pwa-logo.webp" alt="logo" >
+                                          </a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Confirmed Message -->
+                                    <tr>
+                                        <!-- Top Message -->
+                                        <td style="padding-bottom: 20px">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <td align="center">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td style="color: #21a218;font-size: 23px;font-weight: bold;text-align: center;line-height: 1.35;">Your order #{{ order_number }} in processing</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="color: #6c707d;font-size: 13px;font-weight: normal;text-align: center;line-height: 1.4;">{% if shipping_method != 'Local pickup' %}Thank you for shopping Once we ship your order; we are going to notify you. {% else %} We’ve received your order! One of our team may call you, in case of missing information{% endif %}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Start List Items -->
+                                    <tr>
+                                        <td style="padding-top: 10px;">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: left;padding-bottom: 5px;">Item</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: left;padding-bottom: 5px;">Price</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: left;padding-bottom: 5px;">Qty</th>
+                                                    <th style="color: #6b707c;font-size: 14px;font-weight: 400;text-align: right;padding-bottom: 5px;">Subtotal</th>
+                                                </tr>
+
+                                                {% for item in items %}
+                                                <!-- Item -->
+                                                <tr>
+                                                    <td style="border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="top" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td align="left" valign="top" width="80">
+                                                                    <img editable width="55" src={{ item.thumbnail }} alt="image" style="border:1px solid #f9f8f8;border-radius: 4px;padding: 1px;" >
+                                                                </td>
+                                                                <td align="top" valign="top" style="vertical-align:top;">
+                                                                    <table cellpadding="0" cellspacing="0" border="0"  valign="top" style="margin: 0;" width="100%">
+                                                                        <tr>
+                                                                            <td align="top" valign="top" style="color: #121212;font-size: 14px;font-weight: bold;text-align: left;vertical-align:middle;">{{ item.name }}<br><span style="font-size: 13px;font-weight: 300;color: #454545;text-transform: capitalize;">{{ item.variation }}</span></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: left;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.price }} {{ order_currency }}</td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: left;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.quantity }}</td>
+                                                    <td style="color: #000;font-size: 12px;font-weight: 700;text-align: right;border-top: 1px solid #ecedf0;padding-top: 15px;padding-bottom: 15px;">{{ item.subtotal }} {{ order_currency }}</td>
+                                                </tr>
+                                                {% endfor %}
+
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Start Items specifications -->
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                            <tr>
+                                                                <td style="padding-top: 30px;padding-bottom: 30px;border-top: 1px solid #ecedf0;">
+                                                                    <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                        <tr>
+                                                                            <td style="padding: 20px 20px 20px 0;width: 50%;" width="50%">
+                                                                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;font-weight: bold;line-height: 1.35;padding-bottom: 10px;text-transform: uppercase;">Shipping Details ({{ shipping_method }})</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ first_name }} {{ last_name }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ email }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">
+                                                                                          {% if shipping_method != 'Local pickup' %}{{ billing_address }}, {{billing_area}}, {{billing_state}}, {{billing_country}}{% else %}Pickup at Store{% endif %}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">{{ phone }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="color: #000;font-size: 12px;line-height: 1.35;padding-bottom: 5px;">
+                                                                                          Order Date: {{ order_date }}
+                                                                                          {% if(order_qr_img != '') %} {{ order_qr_img }} {% endif %}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                            <td style="padding-left:60px;">
+                                                                                <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">Total</td>
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: right;padding-bottom: 20px;line-height: 1.3;">{{ order_subtotal_to_display }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">Shipping</td>
+                                                                                        {% if shipping_to_display != '0.00' %}
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: right;padding-bottom: 20px;line-height: 1.3;">{{ shipping_to_display }} {{ order_currency }}</td>
+                                                                                        {% endif %}
+                                                                                        {% if shipping_to_display == '0.00' %}
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: right;padding-bottom: 20px;line-height: 1.3;">Free!</td>
+                                                                                        {% endif %}
+                                                                                    </tr>
+                                                                                    {% if order_total_discount != 0 %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:14px;color:#000;padding-bottom: 20px;line-height: 1.3;">Discount</td>
+                                                                                        <td style="font-size:14px;color:#000;font-weight: 700;text-align: right;padding-bottom: 20px;line-height: 1.3;">-{{ order_total_discount }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    {% endif %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:20px;color:#000;font-weight: 700;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">Grand Total</td>
+                                                                                        <td style="font-size:20px;color:#393939;font-weight: 700;text-align: right;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">{{ order_total }} {{ order_currency }}</td>
+                                                                                    </tr>
+                                                                                    {% if order_estimate_equivalent != '' %}
+                                                                                    <tr>
+                                                                                        <td style="font-size:16px;color:#000;font-weight: 400;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">Estimate Equivalent</td>
+                                                                                        <td style="font-size:16px;color:#393939;font-weight: 400;text-align: right;border-top: 1px solid #ecedf0;padding-top: 20px;line-height: 1.3;">{{ order_estimate_equivalent }}</td>
+                                                                                    </tr>
+                                                                                    {% endif %}
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;padding: 40px 10px 40px 27px;border: 1px solid rgb(238, 237, 237);background: #f8f8f8;" width="100%">
+                                                <tr>
+                                                    <td align="left" style="vertical-align: top; padding:0 20px;width: 50%;">
+                                                        <p style="margin:0;height:40px;"><img editable width="40" src="https://www.dresscodeme.com/wp-content/themes/dress-code/img/email/return-icon.png" alt="icon"/></p>
+                                                        <h4 style="font-size: 14px;margin: 5px 0 0;padding: 0;text-transform: capitalize;line-height: 1.5;font-weight: bold;">100% Return Gurauteed</h4>
+                                                        <p style="font-size: 12px; color: #4f4f4f; margin: 0; padding: 0;line-height: 1.95;">Didn’t like your outfit? No worries, we have <a href="https://www.dresscodeme.com/returns-exchange/" style="color: #2075FF;text-decoration: underline;">an excellent return policy</a> tailored to make you a happy customer!</p>
+                                                    </td>
+                                                    <td align="left" style="vertical-align: top; padding:0 20px 0;width: 50%;">
+                                                        <p style="margin:0;height:40px;"><img editable width="50" src="https://www.dresscodeme.com/wp-content/themes/dress-code/img/email/chat-icon.png" alt="icon"/></p>
+                                                        <h4 style="font-size: 14px;margin: 5px 0 0;padding: 0;text-transform: capitalize;line-height: 1.5;font-weight: bold;">Fantastic Customer Support</h4>
+                                                        <p style="font-size: 12px; color: #4f4f4f; margin: 0; padding: 0;line-height: 1.95;">Contact our sales team on our Mobile Number (+20) 1228472222</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="padding: 30px 0 0;">
+                                            <table cellpadding="0" cellspacing="0" border="0"  valign="middle" style="margin: 0;" width="100%">
+                                                <tr>
+                                                    <!-- Social Media -->
+                                                    <td align="left">
+                                                        <table cellpadding="0" cellspacing="0" border="0"  style="margin: 0;">
+                                                            <tr>
+                                                                <td style="padding-bottom: 8px;">
+                                                                    <a href="https://www.facebook.com/" style="font-size: 13px;text-decoration: none;font-weight: 700;color: #4E598F;">
+                                                                        <img editable width="27" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/facebook.webp" alt="icon" style="vertical-align: middle;margin-left: 5px;">
+                                                                         Facebook Page
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/" style="font-size: 13px;text-decoration: none;font-weight: 700;color: #B5339A;">
+                                                                        <img editable width="27" src="https://cloudhosta.com:68/wp-content/uploads/2023/07/instagram.webp" alt="icon" style="vertical-align: middle;margin-left: 5px;">
+                                                                         Instagram
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <!-- End Content Section -->
+
+
+                        <tr>
+                            <td style="padding-top: 25px;padding-bottom:10px ">
+                                <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;text-align: center;">
+                                    <tr>
+                                        <td>
+                                            <span><preferences style="font-size: 10px;color: #a5a5a5;" lang="en">You received this email  cause you susbcribed to DressCode Website, you can unsibscribe any moments by clicking on</preferences>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <unsubscribe style="text-decoration: underline;font-size: 10px;color: #a5a5a5;"> Unsubscribe</unsubscribe>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
+
+​

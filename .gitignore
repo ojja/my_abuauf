@@ -1,0 +1,19 @@
+#wp/wp-content/uploads
+node_modules
+.idea
+
+# production
+build/
+public/build/
+app/tailwind.[hash].css
+app/tailwind.rtl.[hash].css
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache
+/.cache/**
+# package-lock.json
+functions/[[path]].js.map
+app/tailwind.[hash].css
+app/tailwind.rtl.[hash].css

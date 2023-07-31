@@ -1,0 +1,16 @@
+{
+  "checkout": " إتمام عملية الشراء بأمان",
+  "shipping_information": " بيانات العميل",
+  "confirm_payment": "تأكيد عملية الشراء",
+  "choose_order_date": "وقت التوصيل",
+  "shipping_method": "طريقة الشحن",
+  "summary": "الملخص",
+  "floor": "الطابق",
+  "today": "اليوم",
+  "order_type": "نوع الطلب",
+  "terms": "لقد قرأت وقبلت جميع الشروط والأحكام",
+  "next_step": "  أكمل إلى الدفع",
+  "cart": "سلة التسوق",
+  "payment_method": "طريقة الدفع",
+  "complete_order":"اتمام الطلب"
+}

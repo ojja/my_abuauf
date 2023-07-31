@@ -1,0 +1,13 @@
+[build]
+command = "remix build"
+publish = "public"
+
+[dev]
+command = "npm run dev"
+targetPort = 3000
+
+[[headers]]
+for = "/public/*"
+
+[headers.values]
+"Cache-Control" = "public, max-age=60, s-maxage=60"
