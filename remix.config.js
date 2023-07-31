@@ -15,12 +15,16 @@ const cacheControlHeaders = {
  * @param isDev - True during development.
  * @return {EsbuildOption} - You must return the updated option
  */
-withEsbuildOverride((option, { isServer }) => {
+ withEsbuildOverride((option, { isServer }) => {
   if (isServer) {
     option.platform = "node";
     option.define = {
       global: "globalThis",
     };
+    option.plugins = [
+      GlobalsPolyfills({ buffer: true }),
+      ...option.plugins,
+    ];
   }
 
   return option;
@@ -33,6 +37,7 @@ module.exports = {
   // server: "./server.js",
   serverMinify: true,
   serverDependenciesToBundle: "all",
+  serverBuildTarget: "cloudflare-pages",
   future: {
     unstable_tailwind: true,
     v2_routeConvention: true,
