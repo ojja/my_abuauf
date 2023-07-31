@@ -1,29 +1,17 @@
-import { createRequestHandler } from '@remix-run/node';
-import { getRootLoader } from '@remix-run/server';
-import { getAppEntries } from '@remix-run/utils';
-import { headers } from './headers'; // Import the headers function
+import { createPagesFunctionHandler } from '@remix-run/cloudflare-pages';
+import { createEventHandler } from '@remix-run/cloudflare-workers';
+import * as build from '@remix-run/dev/server-build';
 
-const rootLoader = getRootLoader(getAppEntries());
-
-// Add the headers function to the server routes
-const handleRequest = createRequestHandler({
-  getLoadContext() {
-    return {};
-  },
-  async getSession() {
-    return {};
-  },
-  rootLoader,
-//   headers(req, res) {
-//     // Set the cache control headers
-//     res.setHeader('Cache-Control', 'public, max-age=31536000');
-//   },
-  headers(req, res) {
-    // Set the cache control headers
-    res.setHeader('Cache-Control', 'public, max-age=31536000'); // Set max-age to 1 year
-  },
+const handleRequest = createPagesFunctionHandler({
+    build,
+    mode: process.env.NODE_ENV,
 });
 
-// Rest of your server code...
+addEventListener(
+    "fetch",
+    createEventHandler({ build, mode: process.env.NODE_ENV })
+);
 
-export default handleRequest;
+export function onRequest(ctx: EventContext<any, any, any>) {
+    return handleRequest(ctx);
+}

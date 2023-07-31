@@ -28,12 +28,17 @@ withEsbuildOverride((option, { isServer }) => {
 
 /** @type {import('@remix-run/dev').AppConfig}*/
 module.exports = {
-  devServerBroadcastDelay: 1000,
   devServerPort: 3002,
-  // server: "./server.js",
+  // // server: "./server.js",
   serverMinify: true,
   serverDependenciesToBundle: "all",
   serverBuildTarget: "cloudflare-pages",
+  server: "./server.ts",
+  devServerBroadcastDelay: 1000,
+  serverMainFields: ["browser", "module", "main"],
+  serverModuleFormat: "esm",
+  serverPlatform: "neutral",
+  serverConditions: ["worker"],
   future: {
     unstable_tailwind: true,
     v2_routeConvention: true,
