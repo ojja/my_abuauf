@@ -37,7 +37,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "express-session": "^1.17.3",
     "flickity": "^2.3.0",
-    "fsevents": "^2.3.2",
     "history": "^5.3.0",
     "i18next": "^23.3.0",
     "i18next-browser-languagedetector": "^6.1.8",
@@ -106,6 +105,7 @@
     "remix-esbuild-override": "^3.1.0",
     "rtlcss": "^4.1.0",
     "tailwindcss": "^3.3.0",
+    "fsevents": "^2.3.2",
     "typescript": "^5.1.6"
   }
 }
