@@ -15,5 +15,7 @@ yarn-error.log*
 /.cache/**
 # package-lock.json
 functions/[[path]].js.map
+/functions/\[\[path\]\].js
+/functions/\[\[path\]\].js.map
 app/tailwind.[hash].css
 app/tailwind.rtl.[hash].css
