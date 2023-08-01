@@ -4,8 +4,9 @@
   "scripts": {
     "build": "npm run build:css && remix build",
     "build:css": "tailwindcss -o ./app/tailwind.css",
-    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 concurrently \"npm:dev:css\" \"remix dev\" \"npm:json-server\"",
-    "dev:remix": "remix watch",
+    "dev": "concurrently \"npm:dev:css\" \"remix dev\" \"npm:json-server\"",
+    "dev:remix": "cross-env NODE_ENV=development remix watch",
+    "dev:server": "cross-env NODE_ENV=development node ./server.js",
     "dev:miniflare": "cross-env NODE_ENV=development miniflare ./functions/[[path]].js --watch",
     "_dev": "remix build && run-p \"dev:*\"",
     "dev:css": "tailwindcss -o ./app/tailwind.css --watch",

@@ -1,6 +1,3 @@
-// import { Link } from "react-router-dom";
-
-// import { Link } from "react-router-dom";}
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
