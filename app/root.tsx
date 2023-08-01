@@ -24,7 +24,6 @@ import { initializeAnalytics } from './analytics';
 import { json } from "@remix-run/server-runtime";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 
-import { i18nCookie } from "./cookie";
 
 export async function loader({ request }: LoaderFunction) {
   let locale = await i18next.getLocale(request);
@@ -85,7 +84,7 @@ export const headers = {
 let locale = 'ar';
 export default function App() {
   const { i18n } = useTranslation();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isRtl, setIsRtl] = useState(false);
 
   const mainRef = useRef<HTMLDivElement>(null);

@@ -30,7 +30,8 @@ module.exports = {
   ...(process.env.NODE_ENV === "production"
     ? {
         serverBuildTarget: "cloudflare-pages",
-        serverBuildPath: "functions/[[path]].js",
+        // serverBuildPath: "functions/[[path]].js",
+        serverBuildPath: "build",
         serverConditions: ["worker"],
         serverMainFields: ["browser", "module", "main"],
         serverModuleFormat: "esm",
