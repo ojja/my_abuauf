@@ -22,7 +22,7 @@ import Footer from "./layouts/footer";
 import NavBar from "./layouts/navbar";
 import { initializeAnalytics } from './analytics';
 import { json } from "@remix-run/server-runtime";
-import { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/cloudflare";
 
 import { i18nCookie } from "./cookie";
 

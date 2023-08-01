@@ -1,8 +1,6 @@
 const { withEsbuildOverride } = require("remix-esbuild-override");
 const { createRoutesFromFolders } = require("@remix-run/v1-route-convention");
-const {
-  default: GlobalsPolyfills,
-} = require("@esbuild-plugins/node-globals-polyfill");
+// const { default: GlobalsPolyfills } = require("@esbuild-plugins/node-globals-polyfill");
 
 // Add cache control headers to the headers section
 const cacheControlHeaders = {
@@ -25,35 +23,30 @@ withEsbuildOverride((option, { isServer }) => {
 
   return option;
 });
-
-/** @type {import('@remix-run/dev').AppConfig}*/
+/** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-  devServerPort: 3002,
-  // // server: "./server.js",
-  serverMinify: true,
+  devServerBroadcastDelay: 1000,
+  ignoredRouteFiles: ["**/.*"],
+  ...(process.env.NODE_ENV === "production"
+    ? {
+        serverBuildTarget: "cloudflare-pages",
+        serverBuildPath: "functions/[[path]].js",
+        serverConditions: ["worker"],
+        serverMainFields: ["browser", "module", "main"],
+        serverModuleFormat: "esm",
+        serverPlatform: "neutral",
+        serverMinify: false,
+        server: "./server.ts",
+      }
+    : {}),
   serverDependenciesToBundle: "all",
-  ...(process.env.NODE_ENV === "production" ? {
-    serverBuildTarget: "cloudflare-pages",
-    server: "./server.ts",
-    devServerBroadcastDelay: 1000,
-    serverMainFields: ["browser", "module", "main"],
-    serverModuleFormat: "esm",
-    serverPlatform: "neutral",
-    serverConditions: ["worker"],
-  } : {}),
   future: {
-    unstable_tailwind: true,
     v2_routeConvention: true,
   },
-  routes(defineRoutes) {
-    return createRoutesFromFolders(defineRoutes);
-  },
   headers: {
-    "Content-Security-Policy": "frame-ancestors 'self' https://mtf.gateway.mastercard.com",
+    "Content-Security-Policy":
+      "frame-ancestors 'self' https://mtf.gateway.mastercard.com",
     ...cacheControlHeaders,
   },
-  developmentServer: {
-    compress: true, // Enable compression for served assets
-    port: 3000, // Specify the port for the development server
-  },
+  postcss: true,
 };

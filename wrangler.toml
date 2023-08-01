@@ -1,4 +1,4 @@
-name = "md-template"
+name = "md-abuauf"
 
 workers_dev = true
 main = "./build/index.js"
